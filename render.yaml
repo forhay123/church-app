@@ -22,10 +22,11 @@ services:
 
   - type: web
     name: workforce-frontend
-    env: static
+    env: docker
     rootDir: ./frontend
-    buildCommand: npm install && npm run build
-    publishPath: ./dist
+    dockerfilePath: ./frontend/Dockerfile
+    plan: free
+    autoDeploy: true
 
   # -----------------------------
   # Academy
@@ -39,24 +40,8 @@ services:
 
   - type: web
     name: academy-frontend
-    env: static
+    env: docker
     rootDir: ./services/academy/frontend
-    buildCommand: npm install && npm run build
-    publishPath: ./dist
-
-  # -----------------------------
-  # Shop
-  # -----------------------------
-  - type: web
-    name: shop-backend
-    env: python
-    rootDir: ./services/shop/backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-
-  - type: web
-    name: shop-frontend
-    env: static
-    rootDir: ./services/shop/frontend
-    buildCommand: npm install && npm run build
-    publishPath: ./dist
+    dockerfilePath: ./services/academy/frontend/Dockerfile
+    plan: free
+    autoDeploy: true
