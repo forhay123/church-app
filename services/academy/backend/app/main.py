@@ -38,10 +38,9 @@ from app.routers import parent_dashboard_router
 
 # -------------------- App Initialization --------------------
 
-app = FastAPI()
-
 # Define the API prefix
 API_PREFIX = "/academy/api"
+app = FastAPI(title="Academy API")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{API_PREFIX}/token")
 
@@ -80,6 +79,7 @@ raw_origins = os.getenv("ALLOWED_ORIGINS", "")
 ALLOWED_ORIGINS = [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
 if not ALLOWED_ORIGINS:
     ALLOWED_ORIGINS = [
+        "https://gateway.onrender.com",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:8080",
