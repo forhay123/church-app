@@ -1,0 +1,20 @@
+from enum import Enum
+
+class Role(str, Enum):
+    ADMIN = "ADMIN"
+    EXECUTIVE = "EXECUTIVE"
+    PASTOR = "PASTOR"
+    DEPARTMENT_LEADER = "DEPARTMENT_LEADER"
+    MEMBER = "MEMBER"
+
+    # New leadership roles
+    LEAD_PASTOR = "LEAD_PASTOR"
+    ASSOCIATE_PASTOR = "ASSOCIATE_PASTOR"
+    ACADEMY_HEAD = "ACADEMY_HEAD"
+    GIST_HEAD = "GIST_HEAD"
+    TEENS_HEAD = "TEENS_HEAD"
+    GLOBAL_LEADS = "GLOBAL_LEADS"
+    HEAD_A = "HEAD_A"
+    HEAD_B = "HEAD_B"
+    HEAD_C = "HEAD_C"
+    HEAD_D = "HEAD_D"
