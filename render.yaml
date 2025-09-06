@@ -20,8 +20,9 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
-  - type: static
+  - type: web
     name: workforce-frontend
+    env: static
     rootDir: ./frontend
     buildCommand: npm install && npm run build
     publishPath: ./dist
@@ -36,8 +37,9 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
-  - type: static
+  - type: web
     name: academy-frontend
+    env: static
     rootDir: ./services/academy/frontend
     buildCommand: npm install && npm run build
     publishPath: ./dist
@@ -52,8 +54,9 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
-  - type: static
+  - type: web
     name: shop-frontend
+    env: static
     rootDir: ./services/shop/frontend
     buildCommand: npm install && npm run build
     publishPath: ./dist
